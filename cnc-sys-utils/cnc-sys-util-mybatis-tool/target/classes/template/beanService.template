@@ -1,0 +1,15 @@
+[SERVICE_PACKAGE]
+
+import com.cnc.common.persistence.biz.BaseBiz;
+[SERVICE_IMPORT]
+
+
+/**
+ * @描述：[BEAN_NAME]Service接口
+ * @作者:  Auto Code
+ * @创建时间:  [NOW_DATE]
+ * @版本: 1.0
+ */
+public interface [BEAN_NAME]Service extends BaseBiz<[BEAN_NAME]> {
+
+}

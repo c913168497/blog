@@ -1,0 +1,27 @@
+[SERVICE_IMPL_PACKAGE]
+
+import com.cnc.common.persistence.biz.BaseBizImpl;
+import com.cnc.common.persistence.dao.BaseDao;
+[SERVICE_IMPL_IMPORT]
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+/**
+ * @描述：[BEAN_NAME]Service实现类
+ * @作者:  Auto Code
+ * @创建时间:  [NOW_DATE]
+ * @版本: 1.0
+ */
+@Service("[BEAN_NAME_LESS]Service")
+public class [BEAN_NAME]ServiceImpl extends BaseBizImpl<[BEAN_NAME]> implements [BEAN_NAME]Service {
+
+    @Autowired
+    private [BEAN_NAME]Dao [BEAN_NAME_LESS]Dao;
+
+    @Override
+    protected BaseDao<[BEAN_NAME]> getDao() {
+        return [BEAN_NAME_LESS]Dao;
+    }
+
+}

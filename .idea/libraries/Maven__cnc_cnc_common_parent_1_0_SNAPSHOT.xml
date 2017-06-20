@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cnc:cnc-common-parent:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://H:/mavenrepository/repository/cnc/cnc-common-parent/1.0-SNAPSHOT/cnc-common-parent-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://H:/mavenrepository/repository/cnc/cnc-common-parent/1.0-SNAPSHOT/cnc-common-parent-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://H:/mavenrepository/repository/cnc/cnc-common-parent/1.0-SNAPSHOT/cnc-common-parent-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

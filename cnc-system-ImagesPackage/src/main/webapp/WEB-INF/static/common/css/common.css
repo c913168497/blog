@@ -1,0 +1,45 @@
+.sys_button{
+    width: 90px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 5px;
+    background: #0878C2;
+    margin: 15px 0px 5px 30px;
+    font-size: 12px;
+    color: white;
+    box-shadow: 3px 3px 10px #000;
+    font-family: 'Microsoft YaHei';
+    cursor: pointer;
+    text-shadow: 0px 0px 0px #D9D9D9;
+    float: left;
+}
+.sys_button:active{
+    box-shadow: inset -1px 2px 2px #000;
+    text-shadow: 0px 0px 8px #D9D9D9;
+}
+
+.sys_icon{
+    width: 20px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    background: url(/static/common/images/icon.png) no-repeat;
+    background-size:400px 340px;
+}
+.sys_icon_refresh{
+    background-position: -228px -308px;
+}
+.sys_icon_add{
+    background-position: -352px -308px;
+}
+.sys_icon_modify{
+    background-position: -21px -247px;
+}
+.sys_icon_delete{
+    background-position: -310px -308px;
+}
+.table{
+    background: transparent;
+}

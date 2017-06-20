@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-common/cnc-common-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-common/cnc-common-lang" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-common/cnc-common-persistence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-common/cnc-common-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-sys-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-system-Images" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/java/com/system/images/auth/controller/LoginController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/bootstrap/css/bootstrap.min.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/bootstrap/js/bootstrap.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/css/style.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/images/icon.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/Descr.WD3" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/custom.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/cycle.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/dropzone.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/flot-graphs.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/flot-pie.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/flot-time.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/flot.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/common/js/flot.resize.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/easyui/css/images/tab_bg.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/easyui/js/jquery.easyui.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/easyui/js/jquery.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/jquery/js/jquery-1.9.1.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/jquery/js/jquery.checkbox.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/jquery/js/jquery.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/jquery/js/jquery.tablesorter.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/jquery/js/jquery.wysiwyg.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/sys/images/bg-body.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/sys/images/loading-retina.gif" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/sys/images/loading.gif" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/sys/js/auth/menu_manage.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cnc-system-ImagesPackage/src/main/webapp/WEB-INF/static/sys/js/auth/role_manage.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

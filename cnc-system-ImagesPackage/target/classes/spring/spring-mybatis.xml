@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <!-- 读入配置属性文件 -->
+    <!-- 测试环境 -->
+    <context:property-placeholder location="classpath:sys-conf-db.properties"/>
+    <!-- 正式环境 -->
+    <!--<context:property-placeholder location="classpath:sys-conf.properties"/>-->
+
+
+
+    <!-- 基于Druid数据库链接池的数据源配置 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init">
+        <property name="driverClassName" value="${default.jdbc.driverClassName}" />
+        <property name="url" value="${default.jdbc.url}" />
+        <property name="username" value="${default.jdbc.username}" />
+        <property name="password" value="${default.jdbc.password.real}" />
+        <property name="initialSize" value="${default.initialSize}" />
+        <property name="minIdle" value="${default.minIdle}" />
+        <property name="maxActive" value="${default.maxActive}" />
+        <property name="maxWait" value="${default.maxWait}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${default.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${default.minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${default.validationQuery}" />
+        <property name="testWhileIdle" value="${default.testWhileIdle}" />
+        <property name="testOnBorrow" value="${default.testOnBorrow}" />
+        <property name="testOnReturn" value="${default.testOnReturn}" />
+        <property name="poolPreparedStatements" value="${default.poolPreparedStatements}" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="${default.maxPoolPreparedStatementPerConnectionSize}" />
+
+        <!-- 解密密码必须要配置的项 -->
+        <!--
+        <property name="filters" value="config" />
+        <property name="connectionProperties" value="config.decrypt=true" />
+        -->
+    </bean>
+
+    <!-- 将数据源映射到sqlSessionFactory中 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="mapperLocations" value="classpath*:com/system/images/**/dao/impl/*Mapper.xml" />
+        <property name="typeAliasesPackage" value="com.system.images.auth.entity" />
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- SqlSession模板类实例 -->
+    <bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate"  scope="prototype">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+
+    <!-- 事务管理器（由Spring管理MyBatis的事务） -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 关联数据源 -->
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!-- 注解事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

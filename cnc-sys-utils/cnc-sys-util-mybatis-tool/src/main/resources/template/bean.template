@@ -1,0 +1,24 @@
+[BEAN_PACKAGE]
+
+import com.cnc.common.lang.entity.BaseEntity;
+import com.cnc.common.lang.annotation.Label;
+
+[BEAN_IMPORT]
+
+/**
+ * @描述：[BEAN_NAME] 实体类
+ * @作者: Auto Code
+ * @创建时间: [NOW_DATE]
+ * @版本: 1.0
+ */
+public class [BEAN_NAME] extends BaseEntity {
+
+[BEAN_FILE]
+
+[BEAN_METHOD]
+
+    @Override
+    public String toString() {
+        return [BEAN_TOSTR_STR];
+    }
+}

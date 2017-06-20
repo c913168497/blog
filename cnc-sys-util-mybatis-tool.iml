@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool/target/classes" />
+    <output-test url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool/target/test-classes" />
+    <content url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool">
+      <sourceFolder url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/cnc-sys-utils/cnc-sys-util-mybatis-tool/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.30" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.squirrel-sql.thirdparty-non-maven:substance:5.2_01" level="project" />
+  </component>
+</module>

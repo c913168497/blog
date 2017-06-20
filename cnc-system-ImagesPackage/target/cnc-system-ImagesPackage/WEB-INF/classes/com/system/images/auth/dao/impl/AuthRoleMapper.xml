@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.images.auth.dao.impl.AuthRoleDaoImpl">
+
+	<sql id="table">t_auth_role</sql>
+
+	<resultMap id="beanMap" type="com.system.images.auth.entity.AuthRole">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="sn" property="sn" />
+		<result column="status" property="status" />
+
+	</resultMap>
+	<resultMap id="beanMap2" type="com.system.images.auth.entity.AuthResource">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="permission" property="permission" />
+		<result column="url" property="url" />
+		<result column="sn" property="sn" />
+		<result column="menupos" property="menupos" />
+		<result column="icon" property="icon" />
+		<result column="ordernum" property="ordernum" />
+		<result column="pid" property="pid" />
+		<result column="display" property="display" />
+		<result column="psn" property="psn" />
+		<result column="type" property="type" />
+	</resultMap>
+
+	<resultMap id="beanMap3" type="com.system.images.auth.entity.User">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="account" property="account" />
+		<result column="password" property="password" />
+		<result column="is_lock" property="is_lock" />
+		<result column="modify_ts" property="modifyTs" />
+		<result column="modify_answer" property="modifyAnswer" />
+	</resultMap>
+	<insert id="insert" parameterType="com.system.images.auth.entity.AuthRole" keyProperty="id" useGeneratedKeys="true">
+		insert into
+		<include refid="table" />
+		(name,sn,status)
+		values (#{name},#{sn},#{status})
+	</insert>
+	<update id="update" parameterType="com.system.images.auth.entity.AuthRole">
+		update
+		<include refid="table" />
+		<set>
+		name = #{name},
+		sn = #{sn},
+		status = #{status}
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+
+	<select id="getById" parameterType="long" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		where id = #{id}
+	</select>
+
+	<sql id="condition_sql">
+		<if test="name != null and name != ''"> and name = #{name} </if>
+		<if test="sn != null and sn != ''"> and sn = #{sn} </if>
+		<if test="status != null and status != ''"> and status = #{status} </if>
+
+	</sql>
+
+
+	<select id="listBy" parameterType="java.util.Map" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+
+	<!-- 根据多参数进行查询数据 -->
+	<select id="listPage" parameterType="java.util.Map" resultMap="beanMap">
+    		select * from
+    		<include refid="table" />
+    		<where>
+    			<include refid="condition_sql" />
+    		</where>
+    		<if test="sort != null and sort !=''">
+    			order by ${sort}
+    			<choose>
+    				<when test="order != null and order !=''"> ${order}</when>
+    				<otherwise>
+    					<![CDATA[ asc]]>
+    				</otherwise>
+    			</choose>
+    		</if>
+    	</select>
+
+	<select id="listPageCount" parameterType="java.util.Map" resultType="long">
+		select count(1) from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+    </select>
+
+	<select id="listAuthUserByRoleId" parameterType="java.util.Map" resultMap="beanMap3">
+		SELECT * from t_auth_user where id in (select user_id from t_auth_user_role where role_id = #{id})
+	</select>
+
+	<select id="listAuthResourceByRoleId" parameterType="java.util.Map" resultMap="beanMap2">
+		SELECT * FROM t_auth_resource WHERE id in (select res_id from t_auth_role_res where role_id = #{id})
+	</select>
+	<select id="listAuthResourceByUserId" parameterType="java.util.Map" resultMap="beanMap2">
+		SELECT * FROM t_auth_resource WHERE id in (select res_id from t_auth_user_role where user_id = #{id})
+	</select>
+	<select id="getAuthRoleByUserId" parameterType="java.util.Map" resultMap="beanMap">
+		SELECT * FROM  t_auth_role WHERE id in (SELECT role_id from t_auth_user_role where user_id = #{id})
+	</select>
+
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM <include refid="table"/> WHERE id = #{id};
+		DELETE FROM t_auth_user_role WHERE role_id = #{id};
+		DELETE FROM t_auth_role_res WHERE role_id = #{id};
+	</delete>
+
+	<delete id="deleteRoueseById" parameterType="java.util.Map">
+		DELETE FROM t_auth_role_res WHERE role_id = #{id}
+	</delete>
+</mapper>

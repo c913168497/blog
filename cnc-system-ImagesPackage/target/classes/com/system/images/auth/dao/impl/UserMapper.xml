@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.images.auth.dao.impl.UserDaoImpl">
+
+	<sql id="table">t_auth_user</sql>
+
+	<resultMap id="beanMap" type="com.system.images.auth.entity.User">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="account" property="account" />
+		<result column="password" property="password" />
+		<result column="is_lock" property="is_lock" />
+		<result column="modify_ts" property="modifyTs" />
+		<result column="modify_answer" property="modifyAnswer" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.system.images.auth.entity.User" keyProperty="id" useGeneratedKeys="true">
+		insert into
+		<include refid="table" />
+		(name,account,password,modify_ts,modify_answer)
+		values (#{name},#{account},#{password},#{modifyTs},#{modifyAnswer})
+	</insert>
+
+
+	<update id="update" parameterType="com.system.images.auth.entity.User">
+		update
+		<include refid="table" />
+		<set>
+		`name` = #{name},
+		password = #{password},
+		modify_ts = #{modifyTs},
+		modify_answer = #{modifyAnswer},
+		is_lock = #{is_lock}
+		</set>
+		<where>
+			account = #{account}
+		</where>
+	</update>
+
+	<select id="getById" parameterType="long" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		where id = #{id}
+	</select>
+
+	<sql id="condition_sql">
+		<if test="name != null and name != ''"> and name = #{name} </if>
+		<if test="account != null and account != ''"> and account = #{account} </if>
+		<if test="password != null and password != ''"> and password = #{password} </if>
+		<if test="modifyTs != null and modifyTs != ''"> and modify_ts = #{modifyTs} </if>
+		<if test="modifyAnswer != null and modifyAnswer != ''"> and modify_answer = #{modifyAnswer} </if>
+		<if test="is_lock != null and is_lock != ''"> and is_lock = #{is_lock} </if>
+	</sql>
+
+
+	<select id="listBy" parameterType="java.util.Map" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		<where>
+			1=1
+			<include refid="condition_sql" />
+		</where>
+	</select>
+
+	<!-- 根据多参数进行查询数�? -->
+	<select id="listPage" parameterType="java.util.Map" resultMap="beanMap">
+    		select * from
+    		<include refid="table" />
+    		<where>
+    			<include refid="condition_sql" />
+    		</where>
+    		<if test="sort != null and sort !=''">
+    			order by ${sort}
+    			<choose>
+    				<when test="order != null and order !=''"> ${order}</when>
+    				<otherwise>
+    					<![CDATA[ asc]]>
+    				</otherwise>
+    			</choose>
+    		</if>
+    	</select>
+
+	<select id="listPageCount" parameterType="java.util.Map" resultType="long">
+		select count(1) from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+    </select>
+
+	<select id="getByAccount" parameterType="java.util.Map" resultMap="beanMap">
+		SELECT * from <include refid="table"/> WHERE account = #{account} limit 1
+	</select>
+
+
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM <include refid="table"/> WHERE id = #{id};
+		DELETE FROM t_auth_user_role WHERE user_id = #{id};
+	</delete>
+
+</mapper>

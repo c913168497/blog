@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cnc.iml" filepath="$PROJECT_DIR$/cnc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-common.iml" filepath="$PROJECT_DIR$/cnc-common.iml" group="cnc common and utils moudles" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-common-config.iml" filepath="$PROJECT_DIR$/cnc-common-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-common-lang.iml" filepath="$PROJECT_DIR$/cnc-common-lang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-common-persistence.iml" filepath="$PROJECT_DIR$/cnc-common-persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-common-web.iml" filepath="$PROJECT_DIR$/cnc-common-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-parent.iml" filepath="$PROJECT_DIR$/cnc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-sys-util-mybatis-tool.iml" filepath="$PROJECT_DIR$/cnc-sys-util-mybatis-tool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-sys-utils.iml" filepath="$PROJECT_DIR$/cnc-sys-utils.iml" group="cnc common and utils moudles" />
+      <module fileurl="file://$PROJECT_DIR$/cnc-system-ImagesPackage/cnc-system-ImagesPackage.iml" filepath="$PROJECT_DIR$/cnc-system-ImagesPackage/cnc-system-ImagesPackage.iml" />
+    </modules>
+  </component>
+</project>

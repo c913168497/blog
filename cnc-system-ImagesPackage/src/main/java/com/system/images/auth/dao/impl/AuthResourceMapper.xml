@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.images.auth.dao.impl.AuthResourceDaoImpl">
+
+	<sql id="table">t_auth_resource</sql>
+
+	<resultMap id="beanMap" type="com.system.images.auth.entity.AuthResource">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="permission" property="permission" />
+		<result column="url" property="url" />
+		<result column="sn" property="sn" />
+		<result column="menupos" property="menupos" />
+		<result column="icon" property="icon" />
+		<result column="ordernum" property="ordernum" />
+		<result column="pid" property="pid" />
+		<result column="display" property="display" />
+		<result column="psn" property="psn" />
+		<result column="type" property="type" />
+	</resultMap>
+
+	<insert id="insert" parameterType="com.system.images.auth.entity.AuthResource" keyProperty="id" useGeneratedKeys="true">
+		insert into
+		<include refid="table" />
+		(name,permission,url,sn,menupos,icon,ordernum,pid,display,psn,type)
+		values (#{name},#{permission},#{url},#{sn},#{menupos},#{icon},#{ordernum},#{pid},#{display},#{psn},#{type})
+	</insert>
+
+	<update id="update" parameterType="com.system.images.auth.entity.AuthResource">
+		update
+		<include refid="table" />
+		<set>
+		name = #{name},
+		permission = #{permission},
+		url = #{url},
+		sn = #{sn},
+		menupos = #{menupos},
+		icon = #{icon},
+		ordernum = #{ordernum},
+		pid = #{pid},
+		display = #{display},
+		psn = #{psn},
+		type = #{type}
+		</set>
+		<where>
+			id = #{id}
+		</where>
+	</update>
+
+	<select id="getById" parameterType="long" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		where id = #{id}
+	</select>
+
+	<sql id="condition_sql">
+		<if test="name != null and name != ''"> and name = #{name} </if>
+		<if test="permission != null and permission != ''"> and permission = #{permission} </if>
+		<if test="url != null and url != ''"> and url = #{url} </if>
+		<if test="sn != null and sn != ''"> and sn = #{sn} </if>
+		<if test="menupos != null and menupos != ''"> and menupos = #{menupos} </if>
+		<if test="icon != null and icon != ''"> and icon = #{icon} </if>
+		<if test="ordernum != null and ordernum != ''"> and ordernum = #{ordernum} </if>
+		<if test="pid != null and pid != ''"> and pid = #{pid} </if>
+		<if test="display != null and display != ''"> and display = #{display} </if>
+		<if test="psn != null and psn != ''"> and psn = #{psn} </if>
+		<if test="type != null and type != ''"> and type = #{type} </if>
+
+	</sql>
+
+
+	<select id="listBy" parameterType="java.util.Map" resultMap="beanMap">
+		select * from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+	</select>
+
+	<!-- 根据多参数进行查询数�? -->
+	<select id="listPage" parameterType="java.util.Map" resultMap="beanMap">
+    		select * from
+    		<include refid="table" />
+    		<where>
+    			<include refid="condition_sql" />
+    		</where>
+    		<if test="sort != null and sort !=''">
+    			order by ${sort}
+    			<choose>
+    				<when test="order != null and order !=''"> ${order}</when>
+    				<otherwise>
+    					<![CDATA[ asc]]>
+    				</otherwise>
+    			</choose>
+    		</if>
+    	</select>
+
+	<select id="listPageCount" parameterType="java.util.Map" resultType="long">
+		select count(1) from
+		<include refid="table" />
+		<where>
+			<include refid="condition_sql" />
+		</where>
+    </select>
+	<select id="listResourseByUserId" parameterType="java.util.Map" resultMap="beanMap">
+		SELECT DISTINCT ts.* FROM
+		t_auth_resource ts,t_auth_role_res trs,t_auth_role tr,t_auth_user_role tur,t_auth_user tu
+		WHERE ts.id = trs.res_id and trs.role_id = tr.id and tr.id = tur.role_id and tur.user_id = tu.id
+		and ts.display = 1 and tr.status = 1
+		and tu.id = #{userId}
+	</select>
+
+	<select id="listAuthResourceByPId" parameterType="java.util.Map" resultMap="beanMap">
+		SELECT * FROM t_auth_resource WHERE pid = ${pid}
+	</select>
+
+	<delete id="deleteById" parameterType="long">
+		DELETE FROM <include refid="table"/> WHERE id = #{id};
+		DELETE FROM t_auth_role_res WHERE res_id = #{id};
+	</delete>
+</mapper>
